@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-
+print_r($_SERVER);
 include_once 'Database.php';
 include_once 'User.php';
 
