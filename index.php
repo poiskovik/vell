@@ -1,7 +1,7 @@
 <?php
-echo "66666";
+//echo "66666";
 header("Content-Type: application/json");
-print_r($_SERVER);
+//print_r($_SERVER);
 include_once 'Database.php';
 include_once 'User.php';
 
@@ -11,7 +11,7 @@ $db = $database->getConnection();
 $user = new User($db);
 
 $request_method = $_SERVER["REQUEST_METHOD"];
-print_r($request_method);
+//print_r($request_method);
 
 switch($request_method) {
     case 'GET':
@@ -44,7 +44,7 @@ switch($request_method) {
 
         
 
-    
+    print_r(file_get_contents("php://input"));
         $data = json_decode(file_get_contents("php://input"));
 print_r($data);
         if(!empty($data->name) && !empty($data->email)) {
