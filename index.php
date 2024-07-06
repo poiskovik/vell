@@ -42,17 +42,17 @@ switch($request_method) {
     case 'POST':
 
         $data = json_decode(file_get_contents("php://input"));
-    echo "1";
         if(!empty($data->name) && !empty($data->email)) {
-            echo "2";
 print_r($data);
             $user->name = $data->name;
             $user->pass = $data->pass;
             $user->email = $data->email;
             if($user->create()) {
+                echo "3";
                 http_response_code(201);
                 echo json_encode(["message" => "User was created."]);
             } else {
+                echo "4";
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
             }
