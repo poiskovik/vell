@@ -64,7 +64,7 @@ switch($request_method) {
 echo "put";
 print_r($data->name);
 
-    
+    /*
     $STH = $DBH->prepare("SELECT id FROM users WHERE name = ".$data->name);
 $STH->execute();
     $res = $STH->fetch(PDO::FETCH_ASSOC)
@@ -82,7 +82,7 @@ print_r($res);
             $user->id = $data->id;
             $user->name = $data->name;
             $user->email = $data->email;
-
+*/
             if($user->update()) {
                 http_response_code(200);
                 echo json_encode(["message" => "User was updated."]);
