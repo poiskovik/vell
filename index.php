@@ -61,7 +61,7 @@ switch($request_method) {
         break;
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"));
-
+echo "put";
 print_r($data->name);
 
     
