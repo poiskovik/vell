@@ -8,9 +8,10 @@ $opts = array(
     "content" => $xml
   )
 );
-/*
-$context = stream_context_create($opts);
-$response = file_get_contents($url, false, $context);
+print_r($opts);
+
+//$context = stream_context_create($opts);
+//$response = file_get_contents($url, false, $context);
+
 print_r($response);
-*/
 ?>
