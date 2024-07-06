@@ -43,9 +43,9 @@ switch($request_method) {
 
         $data = json_decode(file_get_contents("php://input"));
         if(!empty($data->name) && !empty($data->email)) {
-            $user->name = $data->name;
-            $user->pass = $data->pass;
-            $user->email = $data->email;
+            $user['name'] = $data->name;
+            $user['pass'] = $data->pass;
+            $user['email'] = $data->email;
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
 $rt=  $STH->execute($user);
             
