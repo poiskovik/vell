@@ -40,17 +40,21 @@ switch($request_method) {
         }
         break;
     case 'POST':
-        $data = json_decode(file_get_contents("php://input"));
+ $data = json_decode(file_get_contents("php://input"));
         if(!empty($data->name) && !empty($data->email)) {
-            $users['name'] = $data->name;
-            $users['pass'] = $data->pass;
-            $users['email'] = $data->email;
-            $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
-            $rt=  $STH->execute($users);           
-            if($rt) {
+print_r($data);
+            $user->name = $data->name;
+            $user->pass = $data->pass;
+            $user->email = $data->email;
+print_r($user);
+            if($user->create()) {
+                echo "3";
+                echo "1";
                 http_response_code(201);
-                echo json_encode(["message" => "Пользователь ".$data->name." создан"]);
+                echo json_encode(["message" => "User was created."]);
             } else {
+                echo "4";
+                echo "2";
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
             }
