@@ -47,8 +47,7 @@ switch($request_method) {
             $user->pass = $data->pass;
             $user->email = $data->email;
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
-$STH->execute($data);
-            
+  
             
 print_r($STH);
             if($user->create()) {
