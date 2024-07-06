@@ -62,7 +62,10 @@ switch($request_method) {
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"));
 
-    $STH = $DBH->prepare("SELECT id FROM `users` WHERE `name` = ".$data->name);
+print_r($data->name);
+
+    
+    $STH = $DBH->prepare("SELECT id FROM users WHERE name = ".$data->name);
 $STH->execute();
     $res = $STH->fetch(PDO::FETCH_ASSOC)
 print_r($res);
