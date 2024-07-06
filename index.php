@@ -40,17 +40,13 @@ switch($request_method) {
         }
         break;
     case 'POST':
-
-
         $data = json_decode(file_get_contents("php://input"));
         if(!empty($data->name) && !empty($data->email)) {
-
             $users['name'] = $data->name;
             $users['pass'] = $data->pass;
             $users['email'] = $data->email;
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
-            $rt=  $STH->execute($users);
-           
+            $rt=  $STH->execute($users);           
             if($rt) {
                 http_response_code(201);
                 echo json_encode(["message" => "Пользователь ".$data->name." создан"]);
@@ -65,8 +61,15 @@ switch($request_method) {
         break;
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"));
-    echo "2";
-print_r($data);
+
+    $STH = $DBH->prepare("SELECT id FROM `users` WHERE `name` = ".$data->name);
+$rt=$STH->execute();
+print_r($rt);
+    
+            $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
+            $rt=  $STH->execute($users);           
+
+    
         if(!empty($data->id) && !empty($data->name) && !empty($data->email)) {
 
 
