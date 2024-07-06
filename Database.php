@@ -1,9 +1,9 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "myapi";
-    private $username = "apiuser";
-    private $password = "password";
+    private $db_name = "restapi";
+    private $username = "restapi";
+    private $password = "restapi";
     public $conn;
 
     public function getConnection() {
