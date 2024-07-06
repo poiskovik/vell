@@ -52,6 +52,7 @@ switch($request_method) {
 $rt=  $STH->execute($users);
             if($user->create()) {
                 //http_response_code(201);
+                echo "1";
                 echo json_encode(["message" => "User was created."]);
             } else {
                 http_response_code(503);
