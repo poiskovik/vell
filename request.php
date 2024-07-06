@@ -8,3 +8,4 @@ $client->request('GET', '/status/500');
 
 $res = $client->request('GET', '/status/500', ['http_errors' => false]);
 echo $res->getStatusCode();
+echo "iiiiiiii";
