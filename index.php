@@ -49,7 +49,7 @@ switch($request_method) {
             $users['pass'] = $data->pass;
             $users['email'] = $data->email;
             print_r($users);
-            $STH = $db->prepare("INSERT INTO users (name, pass, email) values (':name', ':pass', ':email')");
+            $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
 $rt=  $STH->execute($users);
             
 print_r($rt);
