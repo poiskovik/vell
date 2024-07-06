@@ -42,9 +42,6 @@ switch($request_method) {
         break;
     case 'POST':
 
-        
-
-    print_r(file_get_contents("php://input"));
         $data = json_decode(file_get_contents("php://input"));
 print_r($data);
         if(!empty($data->name) && !empty($data->email)) {
