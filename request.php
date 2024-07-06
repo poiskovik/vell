@@ -10,6 +10,6 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 $res = curl_exec($ch);
 curl_close($ch);
 
-$res = json_decode($res, true);
+//$res = json_decode($res, true);
 print_r($res);
 ?>
