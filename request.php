@@ -3,5 +3,8 @@ require_once "vendor/autoload.php";
  
 use GuzzleHttp\Psr7\Request;
  
-$request = new Request('PUT', 'http://5.35.101.235/put');
-$response = $client->send($request, ['timeout' => 2]);
+$client->request('GET', '/status/500');
+// Throws a GuzzleHttp\Exception\ServerException
+
+$res = $client->request('GET', '/status/500', ['http_errors' => false]);
+echo $res->getStatusCode();
