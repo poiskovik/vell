@@ -1,5 +1,5 @@
 <?
-$xml='';
+$xml='id=1';
 
 $opts = array(
   "http" => array(
