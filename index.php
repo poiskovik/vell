@@ -50,6 +50,7 @@ switch($request_method) {
             $users['email'] = $data->email;
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
 $rt=  $STH->execute($users);
+            var_dump($rt);
             if($user->create()) {
                 //http_response_code(201);
                 echo "1";
