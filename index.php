@@ -51,7 +51,7 @@ switch($request_method) {
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
 $rt=  $STH->execute($users);
             if($user->create()) {
-                http_response_code(201);
+                //http_response_code(201);
                 echo json_encode(["message" => "User was created."]);
             } else {
                 http_response_code(503);
