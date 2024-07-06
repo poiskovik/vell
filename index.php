@@ -53,7 +53,7 @@ switch($request_method) {
            
             if($rt) {
                 http_response_code(201);
-                echo json_encode(["message" => "User was created."]);
+                echo json_encode(["message" => "Пользователь добавлен в базу"]);
             } else {
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
