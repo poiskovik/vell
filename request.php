@@ -9,5 +9,6 @@ $response = $client->request('GET', 'https://example.com/vat/api/v1/status', [
   ],
 ]);
 */
-echo $response->getBody();
+//echo $response->getBody();
+echo "1";
 ?>
