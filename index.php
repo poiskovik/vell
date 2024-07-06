@@ -45,8 +45,8 @@ switch($request_method) {
 print_r($data);
         if(!empty($data->name) && !empty($data->email)) {
             $user->name = $data->name;
+            $user->pass = $data->pass;
             $user->email = $data->email;
-
             if($user->create()) {
                 http_response_code(201);
                 echo json_encode(["message" => "User was created."]);
