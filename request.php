@@ -13,7 +13,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('name'=>$login,'pass'=>$p
 $res = curl_exec($ch);
 curl_close($ch);
 
-print_r($res);
 $res = json_decode($res, true);
+print_r($res);
 }
 ?>
