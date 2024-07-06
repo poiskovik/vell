@@ -63,8 +63,9 @@ switch($request_method) {
         $data = json_decode(file_get_contents("php://input"));
 
     $STH = $DBH->prepare("SELECT id FROM `users` WHERE `name` = ".$data->name);
-$rt=$STH->execute();
-print_r($rt);
+$STH->execute();
+    $res = $STH->fetch(PDO::FETCH_ASSOC)
+print_r($res);
     
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
             $rt=  $STH->execute($users);           
