@@ -6,6 +6,7 @@ class User {
     public $id;
     public $name;
     public $email;
+    public $pass;
 
     public function __construct($db) {
         $this->conn = $db;
@@ -20,13 +21,15 @@ class User {
     }
 
     public function create() {
-        $query = "INSERT INTO " . $this->table_name . " SET name=:name, email=:email";
+        $query = "INSERT INTO " . $this->table_name . " SET name=:name, pass=:pass, email=:email";
         $stmt = $this->conn->prepare($query);
 
         $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->pass = htmlspecialchars(strip_tags($this->pass));
         $this->email = htmlspecialchars(strip_tags($this->email));
 
         $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":pass", $this->pass);
         $stmt->bindParam(":email", $this->email);
 
         if($stmt->execute()) {
