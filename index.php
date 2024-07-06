@@ -41,16 +41,16 @@ switch($request_method) {
         break;
     case 'POST':
 
-    echo "0";
+
         $data = json_decode(file_get_contents("php://input"));
         if(!empty($data->name) && !empty($data->email)) {
-            echo "9";
-            $user['name'] = $data->name;
-            $user['pass'] = $data->pass;
-            $user['email'] = $data->email;
-            print_r($user);
+
+            $users['name'] = $data->name;
+            $users['pass'] = $data->pass;
+            $users['email'] = $data->email;
+            print_r($users);
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
-$rt=  $STH->execute($user);
+$rt=  $STH->execute($users);
             
 print_r($rt);
             if($user->create()) {
