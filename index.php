@@ -46,7 +46,11 @@ switch($request_method) {
             $user->name = $data->name;
             $user->pass = $data->pass;
             $user->email = $data->email;
-print_r($user);
+            $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
+$STH->execute($data);
+            
+            
+print_r($STH);
             if($user->create()) {
                 echo "1";
                 http_response_code(201);
