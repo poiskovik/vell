@@ -9,9 +9,9 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-print_r($_SERVER);
+//print_r($_SERVER);
 $request_method = $_SERVER["REQUEST_METHOD"];
-print_r($request_method);
+//print_r($request_method);
 switch($request_method) {
     case 'GET':
         $stmt = $user->read();
@@ -41,7 +41,7 @@ switch($request_method) {
         break;
     case 'POST':
  $data = json_decode(file_get_contents("php://input"));
-print_r($data);
+//print_r($data);
         if(!empty($data->name) && !empty($data->email)) {
             $user->name = $data->name;
             $user->pass = $data->pass;
