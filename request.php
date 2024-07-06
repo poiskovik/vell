@@ -1,7 +1,7 @@
 <?php
 //$xml='id=1';
 
-/*$opts = array(
+$opts = array(
   "http" => array(
     "method" => "PUT",
     "header" => "Accept: application/xml\r\n",
@@ -11,6 +11,6 @@
 
 $context = stream_context_create($opts);
 $response = file_get_contents($url, false, $context);
-print_r($response);*/
+print_r($response);
 
 ?>
