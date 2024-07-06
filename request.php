@@ -1,5 +1,5 @@
 <?php 
-$post=Apost('jeims','qwert','adm@adm.ru'); //Создание пользователя (имя,пароль,почта)
+$post=Apost('kolya','fsefqwert','sadm@admd.ru'); //Создание пользователя (имя,пароль,почта)
 
 //$put=Aput('jeims','asdfgh','root@delo.ru'); //Обновление информации пользователя (пароль,почта)
 
@@ -29,6 +29,7 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('name'=>$login,'pass'=>$pass,'email'=>$email)));
 $res = curl_exec($ch);
 curl_close($ch);
+  print_r($res);
 $res = json_decode($res, true);
 print_r($res['message']);
 }
