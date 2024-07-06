@@ -1,4 +1,5 @@
 <?php
+echo "ttttttttt";
 header("Content-Type: application/json");
 print_r($_SERVER);
 include_once 'Database.php';
