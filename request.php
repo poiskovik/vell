@@ -1,11 +1,12 @@
- <?php
-require_once "vendor/autoload.php";
- 
-use GuzzleHttp\Psr7\Request;
- 
-$client->request('GET', '/');
-// Throws a GuzzleHttp\Exception\ServerException
+<?php 
+require_once('vendor/autoload.php');
 
-$res = $client->request('GET', '/', ['http_errors' => false]);
-echo $res->getStatusCode();
-echo "iiiiiiii";
+$client = new \GuzzleHttp\Client();
+
+$response = $client->request('GET', '/', [
+  'headers' => [
+    'accept' => 'application/json',
+  ],
+]);
+
+echo $response->getBody();
