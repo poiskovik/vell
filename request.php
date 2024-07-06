@@ -1,12 +1,12 @@
 <?php 
-require_once('vendor/autoload.php');
 
-$client = new \GuzzleHttp\Client();
+$opts = array(
+  "http" => array(
+    "method" => "POST",
+    "header" => "Accept: application/xml\r\n",
+    "content" => '999999'
+  )
+);
 
-$response = $client->request('GET', '/', [
-  'headers' => [
-    'accept' => 'application/json',
-  ],
-]);
-
-echo $response->getBody();
+$context = stream_context_create($opts);
+$response = file_get_contents($url, false, $context);
