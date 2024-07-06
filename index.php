@@ -42,7 +42,9 @@ switch($request_method) {
     case 'POST':
 
         $data = json_decode(file_get_contents("php://input"));
+    echo "1";
         if(!empty($data->name) && !empty($data->email)) {
+            echo "2";
 print_r($data);
             $user->name = $data->name;
             $user->pass = $data->pass;
