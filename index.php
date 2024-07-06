@@ -65,7 +65,7 @@ switch($request_method) {
         break;
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"));
-
+print_r($data);
         if(!empty($data->id) && !empty($data->name) && !empty($data->email)) {
             $user->id = $data->id;
             $user->name = $data->name;
