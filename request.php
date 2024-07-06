@@ -1,4 +1,4 @@
-<?
+<?php
 //$xml='id=1';
 
 $opts = array(
