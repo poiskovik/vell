@@ -8,7 +8,7 @@ $opts = array(
     "content" => $xml
   )
 );
-print_r($opts);
+//print_r($opts);
 
 $context = stream_context_create($opts);
 $response = file_get_contents($url, false, $context);
