@@ -1,17 +1,13 @@
-<?php
-$xml='id=1';
+<?php 
+require_once('vendor/autoload.php');
 
-$opts = array(
-  "http" => array(
-    "method" => "PUT",
-    "header" => "Accept: application/xml\r\n",
-    "content" => $xml
-  )
-);
-//print_r($opts);
+$client = new \GuzzleHttp\Client();
 
-$context = stream_context_create($opts);
-$response = file_get_contents($url, false, $context);
+$response = $client->request('GET', 'https://example.com/vat/api/v1/status', [
+  'headers' => [
+    'accept' => 'application/json',
+  ],
+]);
 
-print_r($response);
+echo $response->getBody();
 ?>
