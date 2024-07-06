@@ -48,17 +48,12 @@ switch($request_method) {
             $users['name'] = $data->name;
             $users['pass'] = $data->pass;
             $users['email'] = $data->email;
-            print_r($users);
             $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
 $rt=  $STH->execute($users);
-            
-print_r($rt);
             if($user->create()) {
-                echo "1";
                 http_response_code(201);
                 echo json_encode(["message" => "User was created."]);
             } else {
-                echo "2";
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
             }
