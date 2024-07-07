@@ -27,10 +27,8 @@ switch($request_method) {
                     "name" => $name,
                     "email" => $email
                 );
-
                 array_push($users_arr["records"], $user_item);
             }
-
             http_response_code(200);
             echo json_encode($users_arr);
         } else {
@@ -40,7 +38,7 @@ switch($request_method) {
         break;
     case 'POST':
         $data = json_decode(file_get_contents("php://input"));
-    print_r( $data );
+        print_r( $data );
         if(!empty($data->name) && !empty($data->email)) {
             $user->name = $data->name;
             $user->pass = $data->pass;
@@ -57,7 +55,7 @@ switch($request_method) {
             $user->name = $data->name;
             $user->pass = $data->pass;
             if($user->auth()) {
-                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                //$row = $stmt->fetch(PDO::FETCH_ASSOC);
                 print_r($row);
                 http_response_code(201);
                 echo json_encode(["message" => "Пользователь ". $user->name. ', пароль: ". $user->name. ', Email: ");
