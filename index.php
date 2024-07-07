@@ -64,7 +64,8 @@ switch($request_method) {
                     array_push($users_arr["records"], $user_item);
                 }
                 http_response_code(200);
-                echo ("id: ".$users_arr['records'][0]['id'].", User: ". $user->name. ', password: '. $user->pass. ', Email: '.$users_arr['records'][0]['email']);
+                if (!empty($users_arr['records'][0]['id'])) echo ("id: ".$users_arr['records'][0]['id'].", User: ". $user->name. ', password: '. $user->pass. ', Email: '.$users_arr['records'][0]['email']);
+                else echo "Данные не совпадают";
             } else {
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
