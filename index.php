@@ -71,9 +71,7 @@ switch($request_method) {
                     array_push($users_arr["records"], $user_item);
                 }
                 http_response_code(200);
-                print_r($users_arr);
-                echo json_encode($users_arr);
-                echo json_encode(["message" => "Пользователь ". $user->name. ', пароль: '. $user->pass. ', Email: ']);
+                echo ("id: ".$users_arr['records'][0]['id'].", User: ". $user->name. ', password: '. $user->pass. ', Email: '.$users_arr['records'][0]['email']);
             } else {
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
