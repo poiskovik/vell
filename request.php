@@ -1,9 +1,9 @@
 <?php 
-$post=Apost('kolya5','5fsefq11wert','5sadm@admd.ru'); //Создание пользователя (имя,пароль,почта)
+//$post=Apost('kolya5','5fsefq11wert','5sadm@admd.ru'); //Создание пользователя (имя,пароль,почта)
 
-$put=Aput('kolya4','4rfrasd6fgh','4ghroot@delo.ru'); //Обновление информации пользователя (имя,пароль,почта)
+//$put=Aput('kolya4','4rfrasd6fgh','4ghroot@delo.ru'); //Обновление информации пользователя (имя,пароль,почта)
 
-$delete=Adelete('kolya2'); //Удаление пользователя (имя)
+$delete=Adelete('kolya3'); //Удаление пользователя (имя)
 
 
 
@@ -54,7 +54,6 @@ function Adelete ($login) {
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('name'=>$login)));
   $res = curl_exec($ch);
   curl_close($ch);
-  print_r($res);
   $res = json_decode($res, true);
   print_r($res['message']);
 }
