@@ -53,6 +53,8 @@ switch($request_method) {
         elseif (!empty($data->name) && !empty($data->pass) && empty($data->email)) {
             $user->name = $data->name;
             $user->pass = $data->pass;
+            echo "1";
+            print_r($user);
             if($user->auth()) {
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 print_r($row);
