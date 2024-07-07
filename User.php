@@ -19,7 +19,7 @@ class User {
         return $stmt;
     }
     public function auth() {
-        $query = "SELECT id, email FROM " . $this->table_name." WHERE name='kolya5' AND pass='5fsefq11wert'";
+        $query = "SELECT id, email FROM " . $this->table_name." WHERE name=:name AND pass='5fsefq11wert'";
         print_r($query);
         $stmt = $this->conn->prepare($query);
         print_r($stmt);
