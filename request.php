@@ -57,7 +57,7 @@ function Adelete ($login) {
   $res = json_decode($res, true);
   print_r($res['message']);
 }
-function Aauth ($login) {
+function Aauth ($login,$pass) {
   $ch = curl_init('http://5.35.101.235/');
   curl_setopt($ch, CURLOPT_POST, true);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
