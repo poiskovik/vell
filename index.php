@@ -25,7 +25,7 @@ switch($request_method) {
             $users_arr = array();
             $users_arr["records"] = array();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo ("id: ".$row['id'].", User: ". $row['name']. ', password: '. $row['pass']. ', Email: '.$row['email']."<br>\n\n".); 
+                echo ("id: ".$row['id'].", User: ". $row['name']. ', password: '. $row['pass']. ', Email: '.$row['email']."<br>\n\n"); 
             }
         } else {
             http_response_code(404);
