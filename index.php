@@ -13,10 +13,10 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 switch($request_method) {
     case 'GET':
        if(!empty($_GET['name'])) {
-    //       $user->name = $_GET['name'];
-     //   $stmt = $user->read();
+           $user->name = $_GET['name'];
+        $stmt = $user->read();
             print_r( $stmt);
-       // $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
             print_r($row);
 
            
