@@ -66,17 +66,13 @@ print_r($user);
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"));
 
-print_r($data->name);
-
-         
-
     
-        if(!empty($data->id) && !empty($data->name) && !empty($data->email)) {
+        if(!empty($data->name) && !empty($data->email)) {
 
 
 
             
-            $user->id = $data->id;
+            $user->pass = $data->pass;
             $user->name = $data->name;
             $user->email = $data->email;
 
