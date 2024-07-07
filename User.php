@@ -26,7 +26,6 @@ class User {
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":pass", $this->pass);
         $stmt->execute();
-        print_r($stmt);
         return $stmt;
     }
     public function create() {
