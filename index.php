@@ -61,7 +61,6 @@ switch($request_method) {
                         "id" => $id,
                         "email" => $email
                     );
-                    print_r($user_item);
                     array_push($users_arr["records"], $user_item);
                 }
                 http_response_code(200);
