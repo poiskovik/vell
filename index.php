@@ -14,6 +14,13 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 //print_r($request_method);
 switch($request_method) {
     case 'GET':
+    
+        if(!empty($data->name)) {
+
+
+
+        }
+        else {
         $stmt = $user->read();
         $num = $stmt->rowCount();
         if($num > 0) {
@@ -33,6 +40,7 @@ switch($request_method) {
         } else {
             http_response_code(404);
             echo json_encode(["message" => "No users found."]);
+        }
         }
         break;
     case 'POST':
