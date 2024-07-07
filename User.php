@@ -18,7 +18,7 @@ class User {
         $stmt->execute();
         return $stmt;
     }
-    public function auth() {
+    public function Aauth() {
         $query = "SELECT id, email FROM " . $this->table_name." WHERE name=:name and pass=:pass";
         print_r($query);
        /* $stmt = $this->conn->prepare($query);
