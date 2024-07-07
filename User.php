@@ -61,17 +61,13 @@ class User {
     }
 
     public function delete() {
-        $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+        $query = "DELETE FROM " . $this->table_name . " WHERE name = ?";
         $stmt = $this->conn->prepare($query);
-
-        $this->id = htmlspecialchars(strip_tags($this->id));
-
-        $stmt->bindParam(1, $this->id);
-
+        $this->id = htmlspecialchars(strip_tags($this->name));
+        $stmt->bindParam(1, $this->name);
         if($stmt->execute()) {
             return true;
         }
-
         return false;
     }
 }
