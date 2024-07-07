@@ -24,6 +24,7 @@ class User {
         $stmt = $this->conn->prepare($query);
         print_r($stmt);
         $stmt->execute();
+        echo "7777777";
         print_r($stmt);
         return $stmt;
     }
