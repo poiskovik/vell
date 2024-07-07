@@ -40,13 +40,11 @@ switch($request_method) {
         }
         break;
     case 'POST':
- $data = json_decode(file_get_contents("php://input"));
-//print_r($data);
+        $data = json_decode(file_get_contents("php://input"));
         if(!empty($data->name) && !empty($data->email)) {
             $user->name = $data->name;
             $user->pass = $data->pass;
             $user->email = $data->email;
-print_r($user);
             if($user->create()) {
                 echo "3";
                 echo "1";
@@ -64,18 +62,11 @@ print_r($user);
         }
         break;
     case 'PUT':
-        $data = json_decode(file_get_contents("php://input"));
-
-    
-        if(!empty($data->name) && !empty($data->email)) {
-
-
-
-            
+        $data = json_decode(file_get_contents("php://input"));    
+        if(!empty($data->name) && !empty($data->email)) {            
             $user->pass = $data->pass;
             $user->name = $data->name;
             $user->email = $data->email;
-
             if($user->update()) {
                 http_response_code(200);
                 echo json_encode(["message" => "User was updated."]);
