@@ -11,13 +11,13 @@ $db = $database->getConnection();
 $user = new User($db);
 //print_r($_SERVER);
 $request_method = $_SERVER["REQUEST_METHOD"];
-//print_r($request_method);
+print_r($request_method);
 switch($request_method) {
     case 'GET':
-    
+    $data = json_decode(file_get_contents("php://input"));
         if(!empty($data->name)) {
 $stmt = $user->read();
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
+//$row = $stmt->fetch(PDO::FETCH_ASSOC);
             print_r($row);
 
         }
