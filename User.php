@@ -40,14 +40,16 @@ class User {
     }
 
     public function update() {
-        $query = "UPDATE " . $this->table_name . " SET name = :name, email = :email WHERE id = :id";
+        $query = "UPDATE " . $this->table_name . " SET name = :name, pass = :pass, email = :email WHERE id = :id";
         $stmt = $this->conn->prepare($query);
 
         $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->pass = htmlspecialchars(strip_tags($this->pass));
         $this->email = htmlspecialchars(strip_tags($this->email));
         $this->id = htmlspecialchars(strip_tags($this->id));
 
         $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':pass', $this->pass);
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':id', $this->id);
 
