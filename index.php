@@ -19,7 +19,7 @@ switch($request_method) {
             echo ("id: ".$row['id'].", User: ". $row['name']. ', password: '. $row['pass']. ', Email: '.$row['email']);       
         }           
         else {
-        $stmt = $user->read();
+        $stmt = $user->read1();
         $num = $stmt->rowCount();
         if($num > 0) {
             $users_arr = array();
