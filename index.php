@@ -53,7 +53,7 @@ switch($request_method) {
         elseif (!empty($data->name) && !empty($data->pass) && empty($data->email)) {
             $user->name = $data->name;
             $user->pass = $data->pass;
-         /*   if($user->auth()) {
+            if($user->auth()) {
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 print_r($row);
                 http_response_code(201);
@@ -61,7 +61,7 @@ switch($request_method) {
             } else {
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
-            }*/ 
+            }
         }  
         else {
             http_response_code(400);
