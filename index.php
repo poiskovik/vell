@@ -34,6 +34,7 @@ switch($request_method) {
                 array_push($users_arr["records"], $user_item);
             }
             http_response_code(200);
+            print_r($users_arr);
             echo json_encode($users_arr);
         } else {
             http_response_code(404);
