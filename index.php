@@ -60,12 +60,11 @@ switch($request_method) {
                 extract($row);
                 $user_item = array(
                     "id" => $id,
-                    "name" => $name,
-                    "pass" => $pass,
                     "email" => $email
                 );
                 array_push($users_arr["records"], $user_item);
                 http_response_code(200);
+                print_r($users_arr);
                 echo json_encode($users_arr);
                 echo json_encode(["message" => "Пользователь ". $user->name. ', пароль: '. $user->pass. ', Email: ']);
             } else {
