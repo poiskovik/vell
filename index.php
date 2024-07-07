@@ -13,12 +13,13 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 switch($request_method) {
     case 'GET':
     $data = json_decode(file_get_contents("php://input"));
-        if(!empty($data->name)) {
-      //  $stmt = $user->read();
-       //     print_r( $stmt);
-        //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+    print_r($data);
+       if(!empty($data->name)) {
+      /*  $stmt = $user->read();
+            print_r( $stmt);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
             print_r($row);
-
+*/
         }
         else {
         $stmt = $user->read();
