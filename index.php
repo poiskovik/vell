@@ -9,14 +9,13 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-print_r($_SERVER);
+//print_r($_SERVER);
 $request_method = $_SERVER["REQUEST_METHOD"];
-print_r($request_method);
+//print_r($request_method);
 switch($request_method) {
     case 'GET':
         $stmt = $user->read();
         $num = $stmt->rowCount();
-
         if($num > 0) {
             $users_arr = array();
             $users_arr["records"] = array();
@@ -77,10 +76,8 @@ switch($request_method) {
         break;
     case 'DELETE':
         $data = json_decode(file_get_contents("php://input"));
-
         if(!empty($data->name)) {
             $user->name = $data->name;
-
             if($user->delete()) {
                 http_response_code(200);
                 echo json_encode(["message" => "User was deleted."]);
