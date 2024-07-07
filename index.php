@@ -19,7 +19,6 @@ switch($request_method) {
         if($num > 0) {
             $users_arr = array();
             $users_arr["records"] = array();
-
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 extract($row);
                 $user_item = array(
@@ -51,11 +50,11 @@ switch($request_method) {
                 echo json_encode(["message" => "Unable to create user."]);
             }
         } 
-        elseif (!empty($data->name) && !empty($data->pass) && empty($data->email)) {
+       /* elseif (!empty($data->name) && !empty($data->pass) && empty($data->email)) {
             $user->name = $data->name;
             $user->pass = $data->pass;
             if($user->auth()) {
-                //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 print_r($row);
                 http_response_code(201);
                 echo json_encode(["message" => "Пользователь ". $user->name. ', пароль: ". $user->name. ', Email: ");
@@ -63,9 +62,7 @@ switch($request_method) {
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
             }
-        } 
-        
-        
+        } */  
         else {
             http_response_code(400);
             echo json_encode(["message" => "Unable to create user. Data is incomplete."]);
