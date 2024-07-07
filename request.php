@@ -1,7 +1,7 @@
 <?php 
-$post=Apost('Oleg','5fsefq11wert','olegdm@admid.ru'); //Создание пользователя (имя,пароль,почта)
+//$post=Apost('Oleg','5fsefq11wert','olegdm@admid.ru'); //Создание пользователя (имя,пароль,почта)
 
-//$put=Aput('kolya4','4rfrasd6fgh','4ghroot@delo.ru'); //Обновление информации пользователя (имя,пароль,почта)
+$put=Aput('kolya','4e4grfrasd6fgh','hhgot@delo.ru'); //Обновление информации пользователя (имя,пароль,почта)
 
 //$delete=Adelete('kolya3'); //Удаление пользователя (имя)
 
