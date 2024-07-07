@@ -55,6 +55,7 @@ switch($request_method) {
             if($user->auth()) {
                 $users_arr = array();
                 $users_arr["records"] = array();
+                echo "1111";
             print_r($stmt);
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "333";
