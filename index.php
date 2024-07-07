@@ -52,7 +52,9 @@ switch($request_method) {
         elseif (!empty($data->name) && !empty($data->pass) && empty($data->email)) {
             $user->name = $data->name;
             $user->pass = $data->pass;
-            if($user->auth()) {
+            
+        
+            if($stmt = $user->auth()) {
                 $users_arr = array();
                 $users_arr["records"] = array();
                 echo "1111";
