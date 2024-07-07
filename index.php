@@ -51,7 +51,21 @@ switch($request_method) {
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
             }
-        } else {
+        } 
+        elseif (!empty($data->name) && !empty($data->pass) && empty($data->email)) {
+            $user->name = $data->name;
+            $user->pass = $data->pass;
+            if($user->auth()) {
+                http_response_code(201);
+                echo json_encode(["message" => "Пользователь ". $user->name. ', пароль: ". $user->name. ', Email: ");
+            } else {
+                http_response_code(503);
+                echo json_encode(["message" => "Unable to create user."]);
+            }
+        } 
+        
+        
+        else {
             http_response_code(400);
             echo json_encode(["message" => "Unable to create user. Data is incomplete."]);
         }
