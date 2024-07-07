@@ -54,15 +54,16 @@ switch($request_method) {
             $user->pass = $data->pass;
             print_r($user);
             if($user->auth()) {
-            $users_arr = array();
-            $users_arr["records"] = array();
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $users_arr = array();
+                $users_arr["records"] = array();
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 extract($row);
                 $user_item = array(
                     "id" => $id,
                     "email" => $email
                 );
                 array_push($users_arr["records"], $user_item);
+                }
                 http_response_code(200);
                 print_r($users_arr);
                 echo json_encode($users_arr);
