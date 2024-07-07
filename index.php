@@ -51,17 +51,11 @@ switch($request_method) {
         } 
         elseif (!empty($data->name) && !empty($data->pass) && empty($data->email)) {
             $user->name = $data->name;
-            $user->pass = $data->pass;
-            
-        
+            $user->pass = $data->pass;  
             if($stmt = $user->auth()) {
                 $users_arr = array();
                 $users_arr["records"] = array();
-                echo "1111";
-            print_r($stmt);
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "333";
-                print_r($row);
                     extract($row);
                     $user_item = array(
                         "id" => $id,
