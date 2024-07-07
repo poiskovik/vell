@@ -16,10 +16,14 @@ class User {
         $query = "SELECT id, name, email FROM " . $this->table_name;
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
-
         return $stmt;
     }
-
+    public function auth() {
+        $query = "SELECT id, pass, email FROM " . $this->table_name."WHERE name=:name";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
     public function create() {
         $query = "INSERT INTO " . $this->table_name . " SET name=:name, pass=:pass, email=:email";
         $stmt = $this->conn->prepare($query);
