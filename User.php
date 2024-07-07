@@ -20,12 +20,12 @@ class User {
     }
     public function auth() {
         $query = "SELECT id, email FROM " . $this->table_name." WHERE name=:name AND pass=:pass";
+        $stmt = $this->conn->prepare($query);
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->pass = htmlspecialchars(strip_tags($this->pass));
+        print_r($query);
         $stmt->bindParam(":name", $this->name);
         $stmt->bindParam(":pass", $this->pass);
-        print_r($query);
-        $stmt = $this->conn->prepare($query);
         print_r($stmt);
         $stmt->execute();
         echo "7777777";
