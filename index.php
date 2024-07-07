@@ -25,18 +25,8 @@ switch($request_method) {
             $users_arr = array();
             $users_arr["records"] = array();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo ("id: ".$row['id'].", User: ". $row['name']. ', password: '. $row['pass']. ', Email: '.$row['email']); 
-               /* extract($row);
-                $user_item = array(
-                    "id" => $id,
-                    "name" => $name,
-                    "email" => $email
-                );
-                array_push($users_arr["records"], $user_item);*/
+                echo ("id: ".$row['id'].", User: ". $row['name']. ', password: '. $row['pass']. ', Email: '.$row['email']."<br>\n\n".); 
             }
-            http_response_code(200);
-            print_r($users_arr);
-            echo json_encode($users_arr);
         } else {
             http_response_code(404);
             echo json_encode(["message" => "No users found."]);
