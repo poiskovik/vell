@@ -13,7 +13,7 @@ class User {
     }
 
     public function read() {
-        $query = "SELECT id, name, email FROM " . $this->table_name;
+        $query = "SELECT id, name, pass, email FROM " . $this->table_name." WHERE name=:name";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
