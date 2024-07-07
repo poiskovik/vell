@@ -14,7 +14,7 @@ switch($request_method) {
     case 'GET':
        if(!empty($_GET['name'])) {
            $user->name = $_GET['name'];
-        $stmt = $user->read();
+     //   $stmt = $user->read();
             print_r( $stmt);
        // $row = $stmt->fetch(PDO::FETCH_ASSOC);
             print_r($row);
