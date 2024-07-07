@@ -14,9 +14,7 @@ class User {
 
     public function read1() {
         $query = "SELECT id, name, pass, email FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);        
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $stmt->bindParam(":name", $this->name);
+        $stmt = $this->conn->prepare($query);   
         $stmt->execute();
         return $stmt;
     }
