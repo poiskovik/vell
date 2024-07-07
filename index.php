@@ -46,13 +46,9 @@ switch($request_method) {
             $user->pass = $data->pass;
             $user->email = $data->email;
             if($user->create()) {
-                echo "3";
-                echo "1";
                 http_response_code(201);
                 echo json_encode(["message" => "User was created."]);
             } else {
-                echo "4";
-                echo "2";
                 http_response_code(503);
                 echo json_encode(["message" => "Unable to create user."]);
             }
