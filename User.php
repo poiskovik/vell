@@ -22,6 +22,7 @@ class User {
         $query = "SELECT id, email FROM " . $this->table_name." WHERE name=:name and pass=:pass";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
+        print_r($query);
         print_r($stmt);
         return $stmt;
     }
