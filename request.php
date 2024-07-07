@@ -19,7 +19,7 @@ $get=Aget('kolya4'); //Получить информацию о пользова
 
 
 function Aget ($login) {
-  $ch = curl_init('http://5.35.101.235/?'.$login);
+  $ch = curl_init('http://5.35.101.235/?name='.$login);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($ch, CURLOPT_HEADER, false);
