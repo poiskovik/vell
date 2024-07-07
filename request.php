@@ -5,7 +5,9 @@
 
 //$delete=Adelete('kolya3'); //Удаление пользователя (имя)
 
-$auth=Aauth('kolya5','6665fsefq11wert'); //Авторизация пользователя (имя,пароль)
+//$auth=Aauth('kolya5','6665fsefq11wert'); //Авторизация пользователя (имя,пароль)
+
+$get=Aget('kolya4'); //Получить информацию о пользователе (имя)
 
 
 
@@ -16,9 +18,17 @@ $auth=Aauth('kolya5','6665fsefq11wert'); //Авторизация пользов
 
 
 
-
-
-
+function Aget ($login) {
+  $ch = curl_init('http://5.35.101.235/?'.$login);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_HEADER, false);
+  $res = curl_exec($ch);
+  curl_close($ch);  
+  print_r($res);
+  $res = json_decode($res, true);
+  print_r($res['message']);
+}
 function Apost ($login,$pass,$email) {
   $ch = curl_init('http://5.35.101.235/');
   curl_setopt($ch, CURLOPT_POST, true);
