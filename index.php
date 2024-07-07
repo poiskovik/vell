@@ -16,8 +16,9 @@ switch($request_method) {
     case 'GET':
     
         if(!empty($data->name)) {
-
-
+$stmt = $user->read();
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+            print_r($row);
 
         }
         else {
