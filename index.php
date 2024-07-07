@@ -16,7 +16,7 @@ switch($request_method) {
            $user->name = $_GET['name'];
         $stmt = $user->read();
             print_r( $stmt);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+       // $row = $stmt->fetch(PDO::FETCH_ASSOC);
             print_r($row);
 
         }
