@@ -9,9 +9,9 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-//print_r($_SERVER);
+print_r($_SERVER);
 $request_method = $_SERVER["REQUEST_METHOD"];
-//print_r($request_method);
+print_r($request_method);
 switch($request_method) {
     case 'GET':
         $stmt = $user->read();
@@ -65,10 +65,10 @@ print_r($user);
         break;
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"));
- /*echo "put";
+echo "put";
 print_r($data->name);
 
-   
+ /*   
     $STH = $DBH->prepare("SELECT id FROM users WHERE name = ".$data->name);
 $STH->execute();
     $res = $STH->fetch(PDO::FETCH_ASSOC)
