@@ -56,6 +56,8 @@ switch($request_method) {
             $user->name = $data->name;
             $user->pass = $data->pass;
             if($user->auth()) {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                print_r($row);
                 http_response_code(201);
                 echo json_encode(["message" => "Пользователь ". $user->name. ', пароль: ". $user->name. ', Email: ");
             } else {
