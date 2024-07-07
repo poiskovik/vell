@@ -9,9 +9,9 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-print_r($_SERVER);
+//print_r($_SERVER);
 $request_method = $_SERVER["REQUEST_METHOD"];
-print_r($request_method);
+//print_r($request_method);
 switch($request_method) {
     case 'GET':
         $stmt = $user->read();
@@ -65,17 +65,10 @@ print_r($user);
         break;
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"));
-echo "put";
+
 print_r($data->name);
 
- /*   
-    $STH = $DBH->prepare("SELECT id FROM users WHERE name = ".$data->name);
-$STH->execute();
-    $res = $STH->fetch(PDO::FETCH_ASSOC)
-print_r($res);
-    
-            $STH = $db->prepare("INSERT INTO users (name, pass, email) values (:name, :pass, :email)");
-            $rt=  $STH->execute($users);           
+         
 
     
         if(!empty($data->id) && !empty($data->name) && !empty($data->email)) {
@@ -97,7 +90,7 @@ print_r($res);
         } else {
             http_response_code(400);
             echo json_encode(["message" => "Unable to update user. Data is incomplete."]);
-        }*/
+        }
         break;
     case 'DELETE':
         $data = json_decode(file_get_contents("php://input"));
