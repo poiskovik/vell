@@ -7,7 +7,7 @@ include_once 'User.php';
  
 $database = new Database();
 $db = $database->getConnection();
-
+ 
 $user = new User($db);
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch($request_method) {
