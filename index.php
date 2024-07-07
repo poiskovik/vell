@@ -20,6 +20,7 @@ switch($request_method) {
             $users_arr = array();
             $users_arr["records"] = array();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                print_r($row);
                 extract($row);
                 $user_item = array(
                     "id" => $id,
