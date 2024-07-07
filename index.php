@@ -19,10 +19,7 @@ switch($request_method) {
         if($num > 0) {
             $users_arr = array();
             $users_arr["records"] = array();
-            print_r($stmt);
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "333";
-                print_r($row);
                 extract($row);
                 $user_item = array(
                     "id" => $id,
@@ -58,7 +55,10 @@ switch($request_method) {
             if($user->auth()) {
                 $users_arr = array();
                 $users_arr["records"] = array();
+            print_r($stmt);
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "333";
+                print_r($row);
                     extract($row);
                     $user_item = array(
                         "id" => $id,
