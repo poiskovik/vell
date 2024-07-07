@@ -16,10 +16,8 @@ switch($request_method) {
             $user->name = $_GET['name'];
             $stmt = $user->read();
             $row = $stmt->fetch(PDO::FETCH_ASSOC); 
-           print_r($row);
-            echo ("id: ".$users_arr['records'][0]['id'].", User: ". $user->name. ', password: '. $user->pass. ', Email: '.$users_arr['records'][0]['email']);         
-        }
-           
+            echo ("id: ".$row['id'].", User: ". $row['name']. ', password: '. $row['pass']. ', Email: '.$row['email']);       
+        }           
         else {
         $stmt = $user->read();
         $num = $stmt->rowCount();
