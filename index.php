@@ -53,7 +53,7 @@ switch($request_method) {
             $user->name = $data->name;
             $user->pass = $data->pass;
             print_r($user);
-            if($user->Aauth()) {
+            if($user->auth()) {
             echo "1";
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 print_r($row);
