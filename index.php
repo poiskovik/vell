@@ -15,18 +15,8 @@ switch($request_method) {
        if(!empty($_GET['name'])) {
             $user->name = $_GET['name'];
             $stmt = $user->read();
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);  
-                       $users_arr = array();
-            $users_arr["records"] = array();
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                extract($row);
-                $user_item = array(
-                    "id" => $id,
-                    "name" => $name,
-                    "email" => $email
-                );
-                array_push($users_arr["records"], $user_item);
-            }
+            $row = $stmt->fetch(PDO::FETCH_ASSOC); 
+           print_r($row);
             echo ("id: ".$users_arr['records'][0]['id'].", User: ". $user->name. ', password: '. $user->pass. ', Email: '.$users_arr['records'][0]['email']);         
         }
            
